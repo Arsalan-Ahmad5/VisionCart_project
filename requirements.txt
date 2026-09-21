@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+python-multipart
+opencv-python
+numpy
+pillow
+python-dotenv
+sqlalchemy
+supervision
+inference-sdk
