@@ -60,7 +60,7 @@ function Header() {
           <button 
             type="button"
            className="rounded-md bg-teal-700 px-4 py-2 text-sm font-semibold text-white hover:bg-teal-800"
-          ><Link to='/dashboard'>Login
+          ><Link to='/login'>Login
           </Link>
           </button>
 

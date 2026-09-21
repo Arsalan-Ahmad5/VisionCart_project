@@ -14,6 +14,37 @@ import { useNavigate } from "react-router-dom";
 function LiveCheckout() {
   const [cart, setCart] = useState(detectedProducts);
 const navigate = useNavigate();
+const videoRef = useRef(null);
+const [cameraOn, setCameraOn] = useState(false);
+
+const toggleCamera = async () => {
+  if (cameraOn) {
+    // Camera OFF
+    const stream = videoRef.current?.srcObject;
+
+    if (stream) {
+      stream.getTracks().forEach((track) => track.stop());
+      videoRef.current.srcObject = null;
+    }
+
+    setCameraOn(false);
+    return;
+  }
+
+ 
+  try {
+    const stream = await navigator.mediaDevices.getUserMedia({
+      video: true,
+    });
+
+    videoRef.current.srcObject = stream;
+    setCameraOn(true);
+  } catch (error) {
+    console.error("Camera access failed:", error);
+  }
+};
+
+
   const updateQuantity = (id, change) => {
     setCart((prev) =>
       prev
@@ -89,29 +120,30 @@ const navigate = useNavigate();
                 </div>
               </div>
 
-              <span className="rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-medium text-emerald-700">
-                LIVE
-              </span>
+             <button
+  onClick={toggleCamera}
+  className={`rounded-lg px-3 py-2 text-xs font-semibold text-white ${
+    cameraOn
+      ? "bg-red-600 hover:bg-red-700"
+      : "bg-emerald-600 hover:bg-emerald-700"
+  }`}
+>
+  {cameraOn ? "Turn Camera Off" : "Turn Camera On"}
+</button>
             </div>
 
+           
             {/* Mock Camera */}
-            <div className="m-5 flex h-[430px] items-center justify-center rounded-lg bg-slate-900">
-              <div className="text-center">
-
-                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-slate-800">
-                  <Camera className="h-8 w-8 text-slate-400" />
-                </div>
-
-                <p className="mt-4 text-sm font-medium text-slate-300">
-                  Camera Feed
-                </p>
-
-                <p className="mt-1 text-xs text-slate-500">
-                  Live video stream will appear here
-                </p>
-
-              </div>
+              <div className="m-5 h-[430px] overflow-hidden rounded-lg bg-slate-900">
+              <video
+                ref={videoRef}
+                autoPlay
+                playsInline
+                muted
+                className="h-full w-full object-cover"
+              />
             </div>
+           
 
             {/* Camera Info */}
             <div className="grid grid-cols-3 border-t border-slate-200">
@@ -327,7 +359,7 @@ const navigate = useNavigate();
 
              <button
   onClick={() =>
-    navigate("/final-checkout", {
+    navigate("/supervisor/final-checkout", {
       state: { cart },
     })
   }
