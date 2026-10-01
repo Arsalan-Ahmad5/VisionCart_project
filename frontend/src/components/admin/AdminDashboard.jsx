@@ -17,7 +17,7 @@ function AdminDashboard() {
 
 
       {/* Stats */}
-      <div className="grid grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <div className="bg-white border border-slate-200 rounded-xl p-5">
           <p className="text-sm text-slate-500">Total Revenue</p>
           <h2 className="mt-2 text-2xl font-bold text-slate-900">
@@ -62,12 +62,12 @@ function AdminDashboard() {
 
 
       {/* Middle Section */}
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
 
         {/* Sales Overview */}
-        <div className="col-span-2 bg-white border border-slate-200 rounded-xl p-5">
+        <div className="col-span-1 lg:col-span-2 bg-white border border-slate-200 rounded-xl p-5">
 
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div>
               <h2 className="text-base font-semibold text-slate-900">
                 Sales Overview
@@ -78,7 +78,7 @@ function AdminDashboard() {
               </p>
             </div>
 
-            <select className="text-sm border border-slate-200 rounded-lg px-3 py-2">
+            <select className="text-sm border border-slate-200 rounded-lg px-3 py-2 w-full sm:w-auto">
               <option>Last 7 days</option>
               <option>Last 30 days</option>
               <option>Last 3 months</option>
@@ -140,10 +140,10 @@ function AdminDashboard() {
 
 
       {/* Bottom Section */}
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
 
         {/* Recent Orders */}
-        <div className="col-span-2 bg-white border border-slate-200 rounded-xl p-5">
+        <div className="col-span-1 lg:col-span-2 bg-white border border-slate-200 rounded-xl p-5">
 
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-base font-semibold text-slate-900">

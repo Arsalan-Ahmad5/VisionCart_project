@@ -4,15 +4,15 @@ import { howItWorksSteps } from "../data/landingdata";
 function HowItWorks() {
   return (
     <div>
-      <section id="how-it-works" className="bg-slate-50 py-24">
-      <div className="mx-auto max-w-7xl px-6">
+      <section id="how-it-works" className="bg-slate-50 py-16 sm:py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
 
         <div className="max-w-2xl">
           <p className="text-sm font-semibold uppercase tracking-wide text-teal-700">
             How it works
           </p>
 
-          <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900">
+          <h2 className="mt-3 text-2xl sm:text-3xl font-bold tracking-tight text-slate-900">
             From product detection to checkout.
           </h2>
 
@@ -22,7 +22,7 @@ function HowItWorks() {
           </p>
         </div>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-5">
+        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
           {howItWorksSteps.map((step) => (
             <div key={step.number}>
               <p className="text-sm font-bold text-teal-700">
@@ -44,7 +44,7 @@ function HowItWorks() {
 
       </div>
     </section>
-    <hr className="text-slate-200"/>
+    <hr className="border-slate-200"/>
     </div>
   );
 }

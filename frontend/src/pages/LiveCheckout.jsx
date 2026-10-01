@@ -76,7 +76,7 @@ const toggleCamera = async () => {
     <div className="space-y-6">
 
       {/* Page Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
           <h1 className="text-2xl font-semibold text-slate-900">
             Live Checkout
@@ -87,7 +87,7 @@ const toggleCamera = async () => {
           </p>
         </div>
 
-        <div className="flex items-center gap-2 rounded-lg border border-emerald-200 bg-emerald-50 px-3 py-2">
+        <div className="flex items-center gap-2 rounded-lg border border-emerald-200 bg-emerald-50 px-3 py-2 self-start sm:self-auto">
           <span className="h-2.5 w-2.5 rounded-full bg-emerald-500"></span>
 
           <span className="text-sm font-medium text-emerald-700">
@@ -97,15 +97,15 @@ const toggleCamera = async () => {
       </div>
 
       {/* Main Checkout Layout */}
-      <div className="grid grid-cols-12 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
 
         {/* Camera Section */}
-        <div className="col-span-7">
+        <div className="col-span-1 lg:col-span-7">
           <div className="overflow-hidden rounded-xl border border-slate-200 bg-white">
 
-            <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4">
+            <div className="flex items-center justify-between border-b border-slate-200 px-4 sm:px-5 py-4">
               <div className="flex items-center gap-3">
-                <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-teal-50">
+                <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-teal-50 shrink-0">
                   <Camera className="h-5 w-5 text-teal-700" />
                 </div>
 
@@ -120,21 +120,21 @@ const toggleCamera = async () => {
                 </div>
               </div>
 
-             <button
-  onClick={toggleCamera}
-  className={`rounded-lg px-3 py-2 text-xs font-semibold text-white ${
-    cameraOn
-      ? "bg-red-600 hover:bg-red-700"
-      : "bg-emerald-600 hover:bg-emerald-700"
-  }`}
->
-  {cameraOn ? "Turn Camera Off" : "Turn Camera On"}
-</button>
+              <button
+                onClick={toggleCamera}
+                className={`rounded-lg px-3 py-2 text-xs font-semibold text-white transition ${
+                  cameraOn
+                    ? "bg-red-600 hover:bg-red-700"
+                    : "bg-emerald-600 hover:bg-emerald-700"
+                }`}
+              >
+                {cameraOn ? "Turn Camera Off" : "Turn Camera On"}
+              </button>
             </div>
 
            
             {/* Mock Camera */}
-              <div className="m-5 h-[430px] overflow-hidden rounded-lg bg-slate-900">
+            <div className="m-3 sm:m-5 h-[240px] sm:h-[340px] md:h-[430px] overflow-hidden rounded-lg bg-slate-900">
               <video
                 ref={videoRef}
                 autoPlay
@@ -146,23 +146,23 @@ const toggleCamera = async () => {
            
 
             {/* Camera Info */}
-            <div className="grid grid-cols-3 border-t border-slate-200">
+            <div className="grid grid-cols-3 border-t border-slate-200 text-center sm:text-left">
 
-              <div className="border-r border-slate-200 px-5 py-4">
+              <div className="border-r border-slate-200 px-3 sm:px-5 py-3 sm:py-4">
                 <p className="text-xs text-slate-500">Camera</p>
                 <p className="mt-1 text-sm font-medium text-slate-900">
                   CAM-01
                 </p>
               </div>
 
-              <div className="border-r border-slate-200 px-5 py-4">
+              <div className="border-r border-slate-200 px-3 sm:px-5 py-3 sm:py-4">
                 <p className="text-xs text-slate-500">Status</p>
                 <p className="mt-1 text-sm font-medium text-emerald-600">
                   Connected
                 </p>
               </div>
 
-              <div className="px-5 py-4">
+              <div className="px-3 sm:px-5 py-3 sm:py-4">
                 <p className="text-xs text-slate-500">Detections</p>
                 <p className="mt-1 text-sm font-medium text-slate-900">
                   {cart.reduce((sum, item) => sum + item.quantity, 0)}
@@ -174,7 +174,7 @@ const toggleCamera = async () => {
         </div>
 
         {/* Right Section */}
-        <div className="col-span-5 space-y-6">
+        <div className="col-span-1 lg:col-span-5 space-y-6">
 
           {/* Detection Results */}
           <div className="rounded-xl border border-slate-200 bg-white">
@@ -256,19 +256,19 @@ const toggleCamera = async () => {
                 cart.map((item) => (
                   <div
                     key={item.id}
-                    className="flex items-center justify-between px-5 py-4"
+                    className="flex flex-col sm:flex-row sm:items-center justify-between px-4 sm:px-5 py-4 gap-3"
                   >
                     <div>
                       <p className="text-sm font-medium text-slate-900">
                         {item.name}
                       </p>
 
-                      <p className="mt-1 text-sm text-slate-500">
+                      <p className="mt-1 text-xs text-slate-500">
                         ₹{item.price} each
                       </p>
                     </div>
 
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center justify-between sm:justify-end gap-3 w-full sm:w-auto">
 
                       {/* Quantity */}
                       <div className="flex items-center rounded-lg border border-slate-200">
@@ -301,7 +301,7 @@ const toggleCamera = async () => {
                       {/* Remove */}
                       <button
                         onClick={() => removeItem(item.id)}
-                        className="flex h-8 w-8 items-center justify-center rounded-lg text-slate-400 hover:bg-red-50 hover:text-red-600"
+                        className="flex h-8 w-8 items-center justify-center rounded-lg text-slate-400 hover:bg-red-50 hover:text-red-600 transition"
                       >
                         <Trash2 className="h-4 w-4" />
                       </button>

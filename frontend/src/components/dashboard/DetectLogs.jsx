@@ -16,7 +16,7 @@ function DetectionLogs() {
       </div>
 
       {/* Summary */}
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
 
         <div className="bg-white border border-slate-200 rounded-xl p-5">
           <p className="text-sm text-slate-500">Total Detections</p>
@@ -44,7 +44,7 @@ function DetectionLogs() {
       {/* Search */}
       <div className="bg-white border border-slate-200 rounded-xl p-4">
 
-        <div className="relative w-80">
+        <div className="relative w-full sm:w-80">
           <Search
             size={18}
             className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"
@@ -60,8 +60,8 @@ function DetectionLogs() {
 
       {/* Table */}
       <div className="bg-white border border-slate-200 rounded-xl overflow-hidden">
-
-        <table className="w-full text-sm">
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm min-w-[640px]">
 
           <thead className="bg-slate-50 border-b border-slate-200">
             <tr>
@@ -135,6 +135,7 @@ function DetectionLogs() {
           </tbody>
 
         </table>
+        </div>
 
       </div>
 

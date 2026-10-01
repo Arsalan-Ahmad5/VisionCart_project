@@ -6,7 +6,7 @@ function Users() {
     <div className="space-y-6">
 
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
           <h1 className="text-2xl font-semibold text-slate-900">
             Users
@@ -17,14 +17,14 @@ function Users() {
           </p>
         </div>
 
-        <button className="flex items-center gap-2 bg-teal-700 hover:bg-teal-800 text-white px-4 py-2 rounded-lg text-sm font-medium">
+        <button className="flex items-center justify-center gap-2 bg-teal-700 hover:bg-teal-800 text-white px-4 py-2 rounded-lg text-sm font-medium w-full sm:w-auto">
           <Plus size={18} />
           Add User
         </button>
       </div>
 
       {/* Summary Cards */}
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
 
         <div className="bg-white border border-slate-200 rounded-xl p-5">
           <p className="text-sm text-slate-500">
@@ -59,9 +59,9 @@ function Users() {
       </div>
 
       {/* Search + Filter */}
-      <div className="bg-white border border-slate-200 rounded-xl p-4 flex items-center justify-between">
+      <div className="bg-white border border-slate-200 rounded-xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
 
-        <div className="relative w-80">
+        <div className="relative w-full sm:w-80">
           <Search
             size={18}
             className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"
@@ -74,7 +74,7 @@ function Users() {
           />
         </div>
 
-        <select className="border border-slate-200 rounded-lg px-3 py-2 text-sm text-slate-600 outline-none focus:border-teal-600">
+        <select className="w-full sm:w-auto border border-slate-200 rounded-lg px-3 py-2 text-sm text-slate-600 outline-none focus:border-teal-600">
           <option>All Roles</option>
           <option>Admin</option>
           <option>Supervisor</option>
@@ -84,8 +84,8 @@ function Users() {
 
       {/* Users Table */}
       <div className="bg-white border border-slate-200 rounded-xl overflow-hidden">
-
-        <table className="w-full text-sm">
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm min-w-[640px]">
 
           <thead className="bg-slate-50 border-b border-slate-200">
             <tr>
@@ -202,6 +202,7 @@ function Users() {
           </tbody>
 
         </table>
+        </div>
 
       </div>
 

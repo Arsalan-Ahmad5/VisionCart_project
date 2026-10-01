@@ -72,7 +72,7 @@ const getStockStatus=(stock)=>{
     <div className="space-y-6">
 
       {/* Page Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
 
         <div>
           <h1 className="text-2xl font-semibold text-slate-900">
@@ -84,7 +84,7 @@ const getStockStatus=(stock)=>{
           </p>
         </div>
 
-        <button className="flex items-center gap-2 bg-teal-600 hover:bg-teal-700 text-white px-4 py-2.5 rounded-lg text-sm font-medium"
+        <button className="flex items-center justify-center gap-2 bg-teal-600 hover:bg-teal-700 text-white px-4 py-2.5 rounded-lg text-sm font-medium w-full sm:w-auto"
         onClick={() => setIsModalOpen(true)}>
           <Plus size={18} />
           Add Product
@@ -93,15 +93,15 @@ const getStockStatus=(stock)=>{
       </div>
 
       {isModalOpen && (
-  <div className="inset-0 flex items-center justify-center  z-50">
+  <div className="fixed inset-0 flex items-center justify-center bg-slate-900/60 backdrop-blur-xs z-50 p-4 overflow-y-auto">
 
     <form
       onSubmit={handleSubmit}
-      className="w-full max-w-lg bg-white rounded-xl border border-slate-200 p-6"
+      className="w-full max-w-lg bg-white rounded-xl border border-slate-200 p-6 shadow-xl max-h-[90vh] overflow-y-auto my-auto"
     >
 
       <div className="mb-5">
-        <h2>
+        <h2 className="text-lg font-semibold text-slate-900">
           {editingProduct ? "Edit Product" : "Add Product"}
         </h2>
 
@@ -212,13 +212,13 @@ const getStockStatus=(stock)=>{
 )}
 
       {/* Product Table Card */}
-      <div className="bg-white border border-slate-200 rounded-xl">
+      <div className="bg-white border border-slate-200 rounded-xl overflow-hidden">
 
         {/* Filters */}
-        <div className="p-5 border-b border-slate-200 flex items-center justify-between">
+        <div className="p-4 sm:p-5 border-b border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
 
           {/* Search */}
-          <div className="relative w-80">
+          <div className="relative w-full sm:w-80">
 
             <Search
               size={18}
@@ -235,7 +235,7 @@ const getStockStatus=(stock)=>{
 
 
           {/* Category Filter */}
-          <select className="px-3 py-2.5 border border-slate-200 rounded-lg text-sm text-slate-600 outline-none focus:border-teal-500">
+          <select className="w-full sm:w-auto px-3 py-2.5 border border-slate-200 rounded-lg text-sm text-slate-600 outline-none focus:border-teal-500">
             <option>All Categories</option>
             <option>Beverages</option>
             <option>Snacks</option>
@@ -248,9 +248,9 @@ const getStockStatus=(stock)=>{
 
 
         {/* Table */}
-        <div className="overflow-hidden">
+        <div className="overflow-x-auto">
 
-          <table className="w-full">
+          <table className="w-full min-w-[640px]">
 
             <thead>
               <tr className="bg-slate-50 border-b border-slate-200">
@@ -384,7 +384,7 @@ const getStockStatus=(stock)=>{
 
 
         {/* Footer */}
-        <div className="px-5 py-4 border-t border-slate-200 flex items-center justify-between">
+        <div className="px-4 sm:px-5 py-4 border-t border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
 
           <p className="text-sm text-slate-500">
             Showing 5 of 42 products

@@ -2,17 +2,17 @@ import { aboutStats } from "../data/landingdata";
 
 function About() {
   return (
-    <section id="about" className="bg-white py-24">
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="about" className="bg-white py-16 sm:py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
 
-        <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+        <div className="grid gap-8 lg:gap-12 lg:grid-cols-2 lg:items-center">
 
           <div>
             <p className="text-sm font-semibold uppercase tracking-wide text-teal-700">
               About VisionCart
             </p>
 
-            <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900">
+            <h2 className="mt-3 text-2xl sm:text-3xl font-bold tracking-tight text-slate-900">
               Building a faster and more reliable retail experience.
             </h2>
 
@@ -29,7 +29,7 @@ function About() {
             </p>
           </div>
 
-          <div className="rounded-xl border border-slate-200 bg-slate-50 p-8">
+          <div className="rounded-xl border border-slate-200 bg-slate-50 p-6 sm:p-8">
             <h3 className="text-lg font-semibold text-slate-900">
               The Vision
             </h3>
@@ -40,14 +40,14 @@ function About() {
               inventory synchronized with minimal manual intervention.
             </p>
 
-            <div className="mt-8 grid grid-cols-2 gap-6">
+            <div className="mt-8 grid grid-cols-2 gap-4 sm:gap-6">
               {aboutStats.map((stat) => (
                 <div key={stat.label}>
-                  <p className="text-2xl font-bold text-slate-900">
+                  <p className="text-xl sm:text-2xl font-bold text-slate-900">
                     {stat.value}
                   </p>
 
-                  <p className="mt-1 text-sm text-slate-500">
+                  <p className="mt-1 text-xs sm:text-sm text-slate-500">
                     {stat.label}
                   </p>
                 </div>

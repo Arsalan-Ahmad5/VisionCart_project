@@ -6,7 +6,7 @@ function Inventory() {
     <div className="space-y-6">
 
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
           <h1 className="text-2xl font-semibold text-slate-900">
             Inventory
@@ -16,14 +16,14 @@ function Inventory() {
           </p>
         </div>
 
-        <button className="flex items-center gap-2 bg-teal-700 hover:bg-teal-800 text-white px-4 py-2 rounded-lg text-sm font-medium">
+        <button className="flex items-center justify-center gap-2 bg-teal-700 hover:bg-teal-800 text-white px-4 py-2 rounded-lg text-sm font-medium w-full sm:w-auto">
           <Plus size={18} />
           Stock Adjustment
         </button>
       </div>
 
       {/* Summary */}
-      <div className="grid grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
 
         <div className="bg-white border border-slate-200 rounded-xl p-5">
           <p className="text-sm text-slate-500">Total Products</p>
@@ -57,7 +57,7 @@ function Inventory() {
 
       {/* Filters */}
       <div className="bg-white border border-slate-200 rounded-xl p-4">
-        <div className="relative w-80">
+        <div className="relative w-full sm:w-80">
           <Search
             size={18}
             className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"
@@ -73,8 +73,8 @@ function Inventory() {
 
       {/* Table */}
       <div className="bg-white border border-slate-200 rounded-xl overflow-hidden">
-
-        <table className="w-full text-sm">
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm min-w-[600px]">
 
           <thead className="bg-slate-50 border-b border-slate-200">
             <tr>
@@ -150,6 +150,7 @@ function Inventory() {
           </tbody>
 
         </table>
+        </div>
       </div>
 
     </div>

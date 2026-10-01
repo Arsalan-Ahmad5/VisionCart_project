@@ -6,12 +6,12 @@ const Footer = () => {
       {/* Footer */}
       <footer className="border-t border-slate-200 bg-white">
 
-        <div className="max-w-7xl mx-auto px-6 py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12">
 
-          <div className="grid grid-cols-1 gap-10 md:grid-cols-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-10">
 
             {/* Brand */}
-            <div className="md:col-span-2">
+            <div className="sm:col-span-2">
               <div className="flex items-center gap-3">
                 
                 <div className="flex h-9 w-9 items-center justify-center rounded-md bg-teal-700 text-sm font-bold text-white">
